@@ -1,10 +1,10 @@
 export const environment = {
   firebase: {
-    projectId: 'fireauth-test-4af2e',
-    appId: '1:845151277427:web:f21e584716aa32a4463506',
-    storageBucket: 'fireauth-test-4af2e.appspot.com',
-    apiKey: 'AIzaSyA-j_hTEEJy9N6BPoAEk9sIcn-bI6kH4ok',
-    authDomain: 'fireauth-test-4af2e.firebaseapp.com',
-    messagingSenderId: '845151277427',
+    projectId: 'titeres-5d0e7',
+    appId: '1:83361198152:web:dfb9008e9036dca50da87d',
+    storageBucket: 'titeres-5d0e7.appspot.com',
+    apiKey: 'AIzaSyBxp1rtzO0YF60s2_BsPfXQQBRroUUBYYU',
+    authDomain: 'titeres-5d0e7.firebaseapp.com',
+    messagingSenderId: '83361198152',
   },
 };
