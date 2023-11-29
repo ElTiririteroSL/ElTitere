@@ -1,0 +1,5 @@
+WHITE: #f4f5f5
+Light grey: #cccdcd
+Dark Grey: #444545
+Red: #701414
+Black: #000000

@@ -1,4 +1,47 @@
-<section>
+
+
+
+<div id="mainDiv" class="container-fluid">
+  <div id="modalDiv" class="container-fluid">
+      <div id="title" class="container-fluid">
+          <img src="..\assets\img\show.png">
+          <h1 id="titleH">El Titiritero</h1>
+      </div>
+      <div id="descDiv" class="container-fluid"><h2 id="descH">> LOGIN...</h2></div>
+      
+      <div id="inputs" class="container-fluid">
+          <div id="emailDiv" class="container-fluid"> 
+            <label for="email">Your email</label>
+            <input type="email" name="email" id="email" #email
+              placeholder="example@email.com" required></div>
+          <div id="emailDiv" class="container-fluid"> 
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="••••••••" #password
+              required></div>
+           <div id="emailDiv" class="container-fluid"> 
+            <button type="click" (click)="logIn(email.value, password.value)">
+              Sign in
+            </button>
+            <p>
+              Don’t have an account yet?
+              <a href="#"
+                routerLink="/sign-up">Sign up</a>
+            </p></div>
+      </div>
+
+
+
+
+     
+  </div>
+</div>
+
+
+<!-- 
+  
+  BASE WORKING LOGIN CODE
+  
+  <section>
   <div>
     <div>
       <div>
@@ -38,4 +81,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->

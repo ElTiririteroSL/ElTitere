@@ -1,4 +1,48 @@
-<section>
+
+
+
+<div id="mainDiv" class="container-fluid">
+  <div id="modalDiv" class="container-fluid">
+      <div id="title" class="container-fluid">
+          <img src="..\assets\img\show.png">
+          <h1 id="titleH">El Titiritero</h1>
+      </div>
+      <div id="descDiv" class="container-fluid"><h2 id="descH">> REGISTER...</h2></div>
+      
+      <div id="inputs" class="container-fluid">
+          <div id="emailDiv" class="container-fluid"> 
+            <label for="email">Your email</label>
+            <input type="email" name="email" id="email" #email
+              placeholder="example@email.com" required></div>
+          <div id="emailDiv" class="container-fluid"> 
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="••••••••" #password
+              required></div>
+
+           <div id="emailDiv" class="container-fluid"> 
+            <button type="click" (click)="signUp(email.value, password.value)">
+              Sign Up
+            </button>
+            <p>
+              Do you already have an account?
+              <a href="#"
+                routerLink="/login">Log In</a></div>
+      </div>
+
+
+
+
+     
+  </div>
+</div>
+
+
+
+
+<!--
+      PREVIOUS WORKING REGISTER CODE
+  
+  <section>
   <div>
     <div>
       <div>
@@ -29,4 +73,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->

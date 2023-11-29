@@ -1,0 +1,16 @@
+<nav id="navMain" class="navbar navbar-custom">
+    <div id="mainDiv" class="container-fluid">
+      <div id="logoDiv" class="container-fluid">
+      <a id="navTittle" class="navbar-brand" href="#">
+        <img src="..\assets\img\show.png" alt="Logo" width="32" height="32" class="d-inline-block align-text-top">
+        El Titiritero
+      </a>
+    </div>
+      <div id="btnDiv" class="container-fluid">
+      <a [routerLink]="['/login']" class="btn-push red">Login</a>
+      <a [routerLink]="['/sign-up']" href="javascript:return false;" class="btn-push red">Register</a>
+      <a [routerLink]="['/dashboard']" href="javascript:return false;" class="btn-push red">Profile</a>
+    </div>
+    </div>
+  </nav>
+
