@@ -1,31 +1,28 @@
-<section class="bg-light dark:bg-dark">
-  <div class="d-flex flex-column align-items-center justify-content-center px-6 py-8 mx-auto h-md lg:py-0">
-    <div class="w-100 bg-light rounded-lg shadow-sm border-dark mt-md max-w-md xl-p-0 dark:bg-dark dark:border-dark">
-      <div class="p-6 space-y-4 md:space-y-6 p-8">
-        <h1 class="text-xl font-bold leading-tight tracking-tight text-dark md-text-2xl dark:text-light">
+<section>
+  <div>
+    <div>
+      <div>
+        <h1>
           Sign Up
         </h1>
-        <div class="space-y-4 md:space-y-6">
+        <div>
           <div>
-            <label for="email" class="form-label mb-2 text-sm font-medium text-dark dark:text-light">Your email</label>
+            <label for="email">Your email</label>
             <input type="email" name="email" id="email" #email
-              class="form-control border border-dark text-dark sm-text-sm rounded-lg focus-ring-dark focus-border-dark block w-100 p-2.5 dark:bg-dark dark:border-dark dark:placeholder-dark dark:text-light dark:focus-ring-blue dark:focus-border-blue"
               placeholder="example@email.com" required>
           </div>
           <div>
-            <label for="password" class="form-label mb-2 text-sm font-medium text-dark dark:text-light">Password</label>
+            <label for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="••••••••" #password
-              class="form-control border border-dark text-dark sm-text-sm rounded-lg focus-ring-dark focus-border-dark block w-100 p-2.5 dark:bg-dark dark:border-dark dark:placeholder-dark dark:text-light dark:focus-ring-blue dark:focus-border-blue"
               required>
           </div>
 
-          <button type="click" (click)="signUp(email.value, password.value)"
-            class="w-100 btn btn-primary btn-hover bg-primary hover:bg-primary-700 focus-ring-4 focus-outline-none focus-ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus-ring-primary-800">
+          <button type="click" (click)="signUp(email.value, password.value)">
             Sign Up
           </button>
-          <p class="text-sm font-light text-dark dark:text-gray-400">
+          <p>
             Do you already have an account?
-            <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+            <a href="#"
               routerLink="/login">Log In</a>
           </p>
         </div>
