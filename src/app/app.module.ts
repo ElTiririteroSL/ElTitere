@@ -11,6 +11,9 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { MainComponent } from './views/main/main.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { VideoComponent } from './components/video/video.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     SignUpComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    MainComponent,
+    ChatComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
