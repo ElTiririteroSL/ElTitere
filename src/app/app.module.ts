@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainComponent } from './views/main/main.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { VideoComponent } from './components/video/video.component';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { VideoComponent } from './components/video/video.component';
     provideAuth(() => getAuth()),
 
     // error solution NullInjectError
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+     provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

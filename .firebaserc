@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "titeres-5d0e7": {
+      "hosting": {
+        "fireauth-angular-test": [
+          "titeres-5d0e7"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "titeres-5d0e7"
+  }
+}
