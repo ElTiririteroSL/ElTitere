@@ -90,10 +90,18 @@ export class AuthService {
     return user !== null;
   }
 
+  getAuthState() {
+    return this.firebaseAuthenticationService.authState;
+  }
+
   logOut() {
     return this.firebaseAuthenticationService.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['login']);
     });
+  }
+
+  getCurrentUserId(): string | null {
+    return this.userData?.uid || null;
   }
 }
