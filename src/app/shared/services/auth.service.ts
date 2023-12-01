@@ -49,29 +49,29 @@ export class AuthService {
 
   signUpWithEmailAndPassword(email: string, password: string, username: string) {
     return this.firebaseAuthenticationService.createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         const user = userCredential.user;
   
-        if (user) {
+        if (user && user.uid) {
+          const additionalUserData: Partial<User> = {
+            id: user.uid,
+            email: user.email || null,
+            username: username || '', // Asigna un valor predeterminado si username es undefined
+            active: true,
+            subscribed: false,
+            sub_start: null,
+            sub_end: null,
+            admin: false
+          };
+  
           this.userData = user;
-          this.userData.username = username;
+          this.userData.username = username || '';
   
-          // Utilizar async/await para manejar promesas de manera más limpia
-          (async () => {
-            try {
-              await this.userService.createUser({
-                id: user.uid,
-                email: user.email,
-                username: username
-              });
+          await this.userService.createUser(additionalUserData);
   
-              this.observeUserState();
-            } catch (error) {
-              alert('User registration failed.');
-            }
-          })();
+          this.observeUserState();
         } else {
-          alert('User registration failed. User is null.');
+          alert('User registration failed.');
         }
       })
       .catch((error) => {
