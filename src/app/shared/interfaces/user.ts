@@ -1,5 +1,5 @@
 export interface User {
   id: string;
-  email: string;
-  userName: string;
+  email: string | null; // Cambia el tipo a string | null
+  username: string;
 }

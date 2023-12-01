@@ -2,6 +2,8 @@ import { Injectable, NgZone } from '@angular/core';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { UserService } from './user.service';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +15,9 @@ export class AuthService {
   constructor(
     private firebaseAuthenticationService: AngularFireAuth,
     private router: Router,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private userService: UserService
   ) {
-    // OBSERVER save user in localStorage (log-in) and setting up null when log-out
     this.firebaseAuthenticationService.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
@@ -23,61 +25,75 @@ export class AuthService {
       } else {
         localStorage.setItem('user', 'null');
       }
-    })
-
+    });
   }
 
-  // log-in with email and password
   logInWithEmailAndPassword(email: string, password: string) {
     return this.firebaseAuthenticationService.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        this.userData = userCredential.user
-        this.observeUserState()
+        this.userData = userCredential.user;
+        this.observeUserState();
       })
       .catch((error) => {
         alert(error.message);
-      })
+      });
   }
 
-  // log-in with google
   logInWithGoogleProvider() {
     return this.firebaseAuthenticationService.signInWithPopup(new GoogleAuthProvider())
       .then(() => this.observeUserState())
       .catch((error: Error) => {
         alert(error.message);
-      })
+      });
   }
 
-  // sign-up with email and password
-  signUpWithEmailAndPassword(email: string, password: string) {
+  signUpWithEmailAndPassword(email: string, password: string, username: string) {
     return this.firebaseAuthenticationService.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        this.userData = userCredential.user
-        this.observeUserState()
+        const user = userCredential.user;
+  
+        if (user) {
+          this.userData = user;
+          this.userData.username = username;
+  
+          // Utilizar async/await para manejar promesas de manera más limpia
+          (async () => {
+            try {
+              await this.userService.createUser({
+                id: user.uid,
+                email: user.email,
+                username: username
+              });
+  
+              this.observeUserState();
+            } catch (error) {
+              alert('User registration failed.');
+            }
+          })();
+        } else {
+          alert('User registration failed. User is null.');
+        }
       })
       .catch((error) => {
         alert(error.message);
-      })
+      });
   }
 
   observeUserState() {
     this.firebaseAuthenticationService.authState.subscribe((userState) => {
-      userState && this.ngZone.run(() => this.router.navigate(['dashboard']))
-    })
+      userState && this.ngZone.run(() => this.router.navigate(['dashboard']));
+    });
   }
 
-  // return true when user is logged in
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null;
   }
 
-  // logOut
   logOut() {
     return this.firebaseAuthenticationService.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['login']);
-    })
+    });
   }
-
 }

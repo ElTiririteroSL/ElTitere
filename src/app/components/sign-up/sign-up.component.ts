@@ -7,11 +7,9 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService) {}
 
-  }
-
-  signUp(email: string, password: string) {
-    this.authService.signUpWithEmailAndPassword(email, password);
+  signUp(email: string, password: string, username: string) {
+    this.authService.signUpWithEmailAndPassword(email, password, username);
   }
 }
