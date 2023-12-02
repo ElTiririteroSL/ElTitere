@@ -22,7 +22,7 @@
 
 
 #modalDiv {
-    background-color: #444545 ;
+    background-color: #444545b7 ;
     width: 40vw;
     height: 50vh;
     padding: 0px;
@@ -36,7 +36,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #cccdcd;
+    background-color: #cccdcda9;
     height: 30%;
        
 }
@@ -150,6 +150,7 @@ to {
     -o-box-shadow: 0px 5px 0px #4b0505;
     box-shadow: 0px 5px 0px #4b0505;
     text-shadow: 1px 1px 1px #4b0505;
+    margin: 1em;
 }
 
 .btn-push:active {

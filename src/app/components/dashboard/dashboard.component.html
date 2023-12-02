@@ -11,20 +11,22 @@
 
     <div id="inputs" class="container-fluid">
       <div id="dataDiv" class="container-fluid"> 
-        <p id="tag">NAME:</p>
-        <p id="data">{{ userData?.username }}</p>
-        <p id="tag">EMAIL:</p>
-        <p id="data">{{ userData?.email }}</p>
-        <p id="tag">SUBSCRIPTION:</p>
-        <p id="data">{{ userData?.subscribed }}</p>
-        <p id="tag">START DATE:</p>
-        <p id="data">{{ userData?.sub_start | dateFormat }}</p>
-        <p id="tag">END DATE:</p>
-        <p id="data">{{ userData?.sub_end | dateFormat }}</p>
+        
+        <div id="field" class="container-fluid">
+        <p id="tag">USERNAME:</p>
+        <p id="data">{{ userData?.username }}</p></div>
+        <div id="field" class="container-fluid"><p id="tag">EMAIL:</p>
+        <p id="data">{{ userData?.email }}</p></div>
+        <div id="field" class="container-fluid"><p id="tag">SUBSCRIPTION:</p>
+        <p id="data">{{ userData?.subscribed }}</p></div>
+        <div id="field" class="container-fluid"><p id="tag">START DATE:</p>
+        <p id="data">{{ userData?.sub_start | dateFormat }}</p></div>
+        <div id="field" class="container-fluid"><p id="tag">END DATE:</p>
+        <p id="data">{{ userData?.sub_end | dateFormat }}</p></div>
       </div>
       <div id="subsDiv" class="container-fluid"> 
         <div>
-          <button (click)="logOut()">Log Out</button>
+          <button class="btn-push red" (click)="logOut()">Log Out</button>
         </div>
       </div>
     </div>

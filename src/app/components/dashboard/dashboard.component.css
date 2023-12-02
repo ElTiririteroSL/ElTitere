@@ -22,7 +22,7 @@
 
 
 #modalDiv {
-    background-color: #444545 ;
+    background-color: #444545b7 ;
     width: 40vw;
     height: 50vh;
     padding: 0px;
@@ -36,7 +36,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #cccdcd;
+    background-color: #cccdcda9;
     height: 30%;
        
 }
@@ -81,6 +81,16 @@
     align-items: flex-start;
     
     
+}
+
+#tag {
+    font-weight: bold;
+    color: #222;
+}
+
+#field {
+    display: flex;
+    flex-direction: row;
 }
 
 input {
@@ -133,6 +143,7 @@ p {
     animation-name: textflicker;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    margin: 1em;
 }
 
 @keyframes textflicker {
