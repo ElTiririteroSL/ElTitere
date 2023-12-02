@@ -16,6 +16,7 @@ import { ChatComponent } from './components/chat/chat.component';
 import { VideoComponent } from './components/video/video.component';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { DateFormatPipe } from './shared/pipes/date-format.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { DateFormatPipe } from './shared/pipes/date-format.pipe';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

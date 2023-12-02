@@ -1,0 +1,13 @@
+.message {
+    margin-bottom: 10px;
+  }
+  
+  .message-input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  
+  textarea {
+    margin-bottom: 5px;
+  }

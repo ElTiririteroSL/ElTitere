@@ -7,5 +7,6 @@ export const environment = {
     authDomain: 'titeres-5d0e7.firebaseapp.com',
     messagingSenderId: '83361198152',
     measurementId: 'G-XC4GMNWH0Z',
+    databaseURL: 'https://titeres-5d0e7-default-rtdb.europe-west1.firebasedatabase.app',
   },
 };

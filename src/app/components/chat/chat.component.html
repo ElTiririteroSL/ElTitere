@@ -1,1 +1,10 @@
-<p>chat works!</p>
+<div>
+    <div *ngFor="let message of messages" class="message">
+      <p>{{ message.username }}: {{ message.message }}</p>
+    </div>
+  
+    <div class="message-input">
+      <textarea [(ngModel)]="newMessage" placeholder="Escribe un mensaje"></textarea>
+      <button (click)="sendMessage()">Enviar</button>
+    </div>
+  </div>
