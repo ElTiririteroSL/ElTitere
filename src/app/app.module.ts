@@ -15,6 +15,7 @@ import { MainComponent } from './views/main/main.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { VideoComponent } from './components/video/video.component';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { DateFormatPipe } from './shared/pipes/date-format.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     NavbarComponent,
     MainComponent,
     ChatComponent,
-    VideoComponent
+    VideoComponent,
+    DateFormatPipe
   ],
   imports: [
     BrowserModule,

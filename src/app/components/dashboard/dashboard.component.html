@@ -1,5 +1,3 @@
-
-
 <div id="mainDiv" class="container-fluid">
   <div id="modalDiv" class="container-fluid">
     <div id="title" class="container-fluid">
@@ -15,27 +13,14 @@
       <div id="dataDiv" class="container-fluid"> 
         <p id="tag">NAME:</p>
         <p id="data">{{ userData?.username }}</p>
-        <p id="emailp">EMAIL:</p>
+        <p id="tag">EMAIL:</p>
         <p id="data">{{ userData?.email }}</p>
+        <p id="tag">SUBSCRIPTION:</p>
         <p id="data">{{ userData?.subscribed }}</p>
-        <p id="data">{{ userData?.sub_start }}</p>
-        <p id="data">{{ userData?.sub_end }}</p>
-
-
-
-
-        <div *ngIf="userData?.subscribed !== undefined">
-          <p id="tag">SUBSCRIBED:</p>
-          <p id="data">{{ userData?.subscribed }}</p>
-        </div>
-        <div *ngIf="userData?.sub_start !== undefined">
-          <p id="tag">SUBSCRIPTION START:</p>
-          <p id="data">{{ userData?.sub_start | date:'medium' }}</p>
-        </div>
-        <div *ngIf="userData?.sub_end !== undefined">
-          <p id="tag">SUBSCRIPTION END:</p>
-          <p id="data">{{ userData?.sub_end | date:'medium' }}</p>
-        </div>
+        <p id="tag">START DATE:</p>
+        <p id="data">{{ userData?.sub_start | dateFormat }}</p>
+        <p id="tag">END DATE:</p>
+        <p id="data">{{ userData?.sub_end | dateFormat }}</p>
       </div>
       <div id="subsDiv" class="container-fluid"> 
         <div>
