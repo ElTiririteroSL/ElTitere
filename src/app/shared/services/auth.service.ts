@@ -4,12 +4,13 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { UserService } from './user.service';
 import { User } from '../interfaces/user';
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
   userData: any;
 
   constructor(
@@ -18,12 +19,23 @@ export class AuthService {
     private ngZone: NgZone,
     private userService: UserService
   ) {
-    this.firebaseAuthenticationService.authState.subscribe((user) => {
+    this.firebaseAuthenticationService.authState.pipe(
+      switchMap((user) => {
+        if (user) {
+          this.userData = user;
+          localStorage.setItem('user', JSON.stringify(this.userData));
+
+          // Utilizamos el servicio de usuario para obtener el username
+          return this.userService.getUserById(user.uid);
+        } else {
+          localStorage.setItem('user', 'null');
+          return of(null);
+        }
+      })
+    ).subscribe((user) => {
       if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-      } else {
-        localStorage.setItem('user', 'null');
+        // Si hay información del usuario en la base de datos, actualizamos el userData
+        this.userData = { ...this.userData, ...user };
       }
     });
   }
@@ -103,5 +115,9 @@ export class AuthService {
 
   getCurrentUserId(): string | null {
     return this.userData?.uid || null;
+  }
+
+  getCurrentUsername(): Observable<string> {
+    return of(this.userData?.username || 'Usuario Anónimo');
   }
 }

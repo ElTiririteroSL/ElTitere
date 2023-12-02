@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class ChatComponent implements OnInit {
   messages: any[] = [];
   newMessage: string = '';
+  username: string = 'Usuario Anónimo';
 
   constructor(private chatService: ChatService, private authService: AuthService) {}
 
@@ -21,10 +22,12 @@ export class ChatComponent implements OnInit {
 
   sendMessage(): void {
     if (this.newMessage.trim() !== '') {
-      const userId = this.authService.getCurrentUserId()?.toString(); // Usando el operador de navegación segura
-      const username = userId || 'Usuario Anónimo';
-      this.chatService.sendMessage(this.newMessage, username);
-      this.newMessage = '';
+      // Obtén el nombre de usuario justo antes de enviar el mensaje
+      this.authService.getCurrentUsername().subscribe((username: string) => {
+        this.username = username || 'Usuario Anónimo';
+        this.chatService.sendMessage(this.newMessage, this.username);
+        this.newMessage = '';
+      });
     }
   }
 }
