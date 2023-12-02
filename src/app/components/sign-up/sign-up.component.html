@@ -15,8 +15,18 @@
       </div>
 
       <div id="emailDiv" class="container-fluid">
+        <label for="confirmEmail">Confirm Email</label>
+        <input type="email" name="confirmEmail" id="confirmEmail" #confirmEmail placeholder="example@email.com" required>
+      </div>
+
+      <div id="emailDiv" class="container-fluid">
         <label for="password">Password</label>
         <input type="password" name="password" id="password" placeholder="••••••••" #password required>
+      </div>
+
+      <div id="emailDiv" class="container-fluid">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="••••••••" #confirmPassword required>
       </div>
 
       <div id="emailDiv" class="container-fluid">
@@ -25,7 +35,7 @@
       </div>
 
       <div id="emailDiv" class="container-fluid">
-        <button type="click" class="btn-push red" (click)="signUp(email.value, password.value, username.value)">
+        <button type="click" class="btn-push red" (click)="signUp(email.value, confirmEmail.value, password.value, confirmPassword.value, username.value)">
           Sign Up
         </button>
         <p>
