@@ -13,6 +13,22 @@
     border-radius: 10px;
     background-color: #444545;
     color: #f4f5f5;
+    resize: none;
+    overflow-x: hidden; /* Evitar desplazamiento horizontal */
+    scrollbar-width: thin; /* Para navegadores Firefox */
+    scrollbar-color: #bdbdbd #f5f5f5; /* Para navegadores Firefox */
+  }
+  
+  textarea::-webkit-scrollbar {
+    width: 6px; /* Ancho de la barra de desplazamiento en WebKit (Chrome, Safari, etc.) */
+  }
+  
+  textarea::-webkit-scrollbar-thumb {
+    background-color: #bdbdbd; /* Color del pulgar (barra de desplazamiento) */
+  }
+  
+  textarea::-webkit-scrollbar-track {
+    background-color: #f5f5f5; /* Color de la pista (fondo detrás del pulgar) */
   }
 
   #chatMain {
@@ -28,6 +44,7 @@
     flex: 1; /* Hace que messagesDiv ocupe todo el espacio disponible para el desplazamiento */
     scrollbar-width: thin; /* Firefox */
   scrollbar-color: #bdbdbd #f5f5f5; /* Firefox */
+  overflow-x: hidden;
   
   }
 
@@ -74,6 +91,8 @@
 #bucleDiv {
   margin: 0px;
   padding: 0px;
+  word-wrap: break-word; /* Rompe las palabras y ajusta al ancho del contenedor */
+  max-width: 100%; /* Establece el tamaño máximo al ancho del contenedor */
 }
 
 #msg {

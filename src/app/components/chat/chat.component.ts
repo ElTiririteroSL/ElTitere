@@ -33,11 +33,17 @@ export class ChatComponent implements OnInit {
 
   sendMessage(): void {
     if (this.newMessage.trim() !== '') {
+      // Limitar la longitud del mensaje a 100 caracteres
+      const trimmedMessage = this.newMessage.substring(0, 100);
+  
       this.authService.getCurrentUsername().subscribe((username: string) => {
         this.username = username || 'Usuario Anónimo';
-        this.chatService.sendMessage(this.newMessage, this.username);
+        
+        // Enviar el mensaje truncado
+        this.chatService.sendMessage(trimmedMessage, this.username);
+  
         this.newMessage = '';
-
+  
         // Esperar un breve momento antes de desplazarse hacia abajo
         setTimeout(() => {
           this.scrollToBottom();
