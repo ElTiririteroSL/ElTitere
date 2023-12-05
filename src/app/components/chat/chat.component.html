@@ -1,6 +1,6 @@
 <div id="chatMain" class="container-fluid">
   <div id="messagesDiv" class="container-fluid" #messagesDiv>
-    <div id="bucleDiv" *ngFor="let message of messages" class="message">
+    <div id="bucleDiv" *ngFor="let message of messages.reverse()" class="message">
       <p id="msg">{{ message.username }}: {{ message.message }}</p>
     </div>
   </div>

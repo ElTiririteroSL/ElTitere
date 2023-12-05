@@ -17,9 +17,17 @@ export class ChatComponent implements OnInit {
   constructor(private chatService: ChatService, private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.chatService.getMessages().subscribe((messages) => {
-      this.messages = messages;
-      this.scrollToBottom();
+    this.authService.getCurrentUsername().subscribe((username: string) => {
+      this.username = username || 'Usuario Anónimo';
+  
+      // Obtener la marca de tiempo actual
+      const currentTimeStamp = new Date().getTime();
+  
+      // Obtener mensajes solo desde el momento en que el usuario entra
+      this.chatService.getMessagesSince(currentTimeStamp).subscribe((messages) => {
+        this.messages = messages;
+        this.scrollToBottom();
+      });
     });
   }
 
