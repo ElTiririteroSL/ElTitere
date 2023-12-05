@@ -1,14 +1,15 @@
 <div id="chatMain" class="container-fluid">
-  <div id="messagesDiv" class="container-fluid">
+  <div id="messagesDiv" class="container-fluid" #messagesDiv>
     <div id="bucleDiv" *ngFor="let message of messages" class="message">
       <p id="msg">{{ message.username }}: {{ message.message }}</p>
     </div>
   </div>
-    <div id="sendMain" class="message-input">
-      <div id="textDiv">
-      <textarea [(ngModel)]="newMessage" placeholder="Escribe un mensaje"></textarea></div>
-      <div id="sendDiv">
+  <div id="sendMain" class="message-input">
+    <div id="textDiv">
+      <textarea [(ngModel)]="newMessage" placeholder="Escribe un mensaje"></textarea>
+    </div>
+    <div id="sendDiv">
       <button id="sendBtn" (click)="sendMessage()">Send</button>
     </div>
-    </div>
   </div>
+</div>

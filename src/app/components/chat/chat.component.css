@@ -15,20 +15,16 @@
     color: #f4f5f5;
   }
 
-#chatMain {
-  height: 100%;
-}
-
-
-#messagesDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  margin: 0px;
-  padding: 0px;
-  height: 90%;
-
-}
+  #chatMain {
+    height: 100%; /* Asegura que el chatMain ocupe toda la altura del contenedor padre */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #messagesDiv {
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si el contenido supera el tamaño del contenedor */
+    flex: 1; /* Hace que messagesDiv ocupe todo el espacio disponible para el desplazamiento */
+  }
 
 
 
